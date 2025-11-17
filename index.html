@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MuniAssistant - Portal de Servicios Municipales</title>
+  <link rel="icon" type="image/png" href="Muni2.ico.png" />
+
+  <style>
+    /* === ESTILOS GENERALES === */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #F9FAFB;
+      color: #333;
+    }
+
+    /* === ENCABEZADO HERO === */
+    header {
+      position: relative;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* Degradado animado: Azul marino (#002060) y Gris oscuro (#4B4B4B) */
+      background: linear-gradient(270deg, #002060, #4B4B4B, #002060);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .logo img {
+      width: 320px;
+      max-width: 90%;
+      height: auto;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: fadeInZoom 1.5s ease forwards;
+    }
+
+    @keyframes fadeInZoom {
+      0% {opacity: 0; transform: scale(0.9);}
+      100% {opacity: 1; transform: scale(1);}
+    }
+    
+    .hero-text {
+        margin-top: 10px;
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+
+    /* Navegación Principal */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2em;
+      padding: 12px 22px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    nav a:hover {
+      background-color: rgba(0, 48, 128, 0.8);
+      transform: scale(1.05);
+      border: 2px solid white;
+    }
+
+    /* === CONTENIDO PRINCIPAL Y ACORDEÓN === */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    section {
+      margin-bottom: 25px;
+    }
+
+    /* Cabecera del Acordeón */
+    .menu-accordion-header {
+      background-color: #002060;
+      color: white;
+      padding: 18px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 0;
+      font-size: 1.3em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-accordion-header:hover { 
+        background-color: #003080; 
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .arrow { 
+        transition: transform 0.3s ease; 
+        font-size: 0.8em;
+        font-weight: 900;
+    }
+    .arrow.open { 
+        transform: rotate(90deg); 
+    }
+
+    /* Submenú de Enlaces */
+    .submenu {
+      margin-top: 8px;
+      padding: 10px 0;
+      border: 1px solid #E5E7EB;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      display: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .submenu a {
+      display: block;
+      margin: 4px 15px;
+      padding: 12px 15px;
+      background-color: #F3F4F6;
+      border-left: 5px solid #4B4B4B;
+      border-radius: 8px;
+      color: #002060;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .submenu a:hover {
+      background-color: #E0E7FF;
+      transform: translateX(3px);
+    }
+
+    /* === PIE DE PÁGINA === */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: #6B7280;
+      font-size: 0.9em;
+      background-color: #F3F4F6;
+      border-top: 3px solid #002060;
+    }
+
+    footer a {
+      color: #002060;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover { color: #4B4B4B; }
+
+    /* Media Queries para Responsive Design */
+    @media (max-width: 600px) {
+      .logo img { width: 200px; }
+      nav a { font-size: 1em; padding: 8px 12px; }
+      main { padding: 15px; margin: 20px auto; }
+      .menu-accordion-header { font-size: 1.1em; padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="Muni2.ico.png" alt="Logo Principal de MuniAssistant" />
+      <h1 class="hero-text">Tu Asistente Municipal de Trámites</h1>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="menu-accordion-header" onclick="toggleMenu('generales', this)">
+        Servicios Generales: Consulta de Patentes
+        <span class="arrow">▶</span>
+      </h2>
+      <div id="generales" class="submenu">
+        <a href="patente1.html">Patente 1: Licencia Comercial General</a>
+        <a href="patente2.html">Patente 2: Licencia de Venta de Licores</a>
+        <a href="patente3.html">Patente 3: Actividades de Alto Riesgo</a>
+        <a href="patente4.html">Patente 4: Licencia de Espectáculos Públicos</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="menu-accordion-header" onclick="toggleMenu('personalizados', this)">
+        Servicios Personalizados: Solicitudes y Seguimiento
+        <span class="arrow">▶</span>
+      </h2>
+      <div id="personalizados" class="submenu">
+        <a href="crear_solicitud.html">Crear Solicitud de Patente (Ingreso de Datos)</a>
+        <a href="estado_solicitud.html">Ver Estado de Solicitud (Seguimiento por Número)</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 MuniAssistant | Portal de Servicios Municipales |
+    <a href="https://muni-assistant.vercel.app/" target="_blank" rel="noopener noreferrer">www.muniassistant.com</a>
+  </footer>
+
+  <script>
+    /**
+     * Alterna la visibilidad de un menú de acordeón.
+     * @param {string} id - El ID del elemento submenu a mostrar/ocultar.
+     * @param {HTMLElement} element - El elemento que fue clickeado (la cabecera H2).
+     */
+    function toggleMenu(id, element) {
+      const menu = document.getElementById(id);
+      const arrow = element.querySelector(".arrow");
+      
+      const isVisible = menu.style.display === "block";
+
+      // Oculta/muestra el submenú
+      menu.style.display = isVisible ? "none" : "block";
+      
+      // Rota la flecha
+      arrow.classList.toggle("open", !isVisible);
+    }
+    
+    // Abrir un menú por defecto al cargar la página (opcional)
+    document.addEventListener('DOMContentLoaded', () => {
+        const generalesHeader = document.querySelector('h2');
+        if (generalesHeader) {
+            // Llama a la función para abrir el primer menú al cargar
+            toggleMenu('generales', generalesHeader);
+        }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consultar Estado de Solicitud - MuniAssistant</title>
+  <link rel="icon" type="image/png" href="Muni2.ico.png" />
+
+  <style>
+    /* === ESTILOS GENERALES === */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #F9FAFB;
+      color: #333;
+    }
+
+    /* === ENCABEZADO HERO === */
+    header {
+      position: relative;
+      height: 250px; /* Altura reducida para páginas de contenido */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #002060, #4B4B4B, #002060);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .logo img {
+      width: 150px; /* Reducido para no dominar */
+      height: auto;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: fadeInZoom 1.5s ease forwards;
+    }
+
+    @keyframes fadeInZoom {
+      0% {opacity: 0; transform: scale(0.9);}
+      100% {opacity: 1; transform: scale(1);}
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      padding: 8px 18px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(0, 48, 128, 0.8);
+      transform: scale(1.05);
+    }
+
+    /* === CONTENIDO PRINCIPAL Y FORMULARIO === */
+    main {
+      max-width: 500px; /* Menos ancho para un formulario simple */
+      margin: 60px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+    
+    .content-title {
+        color: #002060;
+        text-align: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #002060;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #002060;
+        text-align: center;
+    }
+    
+    .form-group input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #D1D5DB;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 1.2em;
+        text-align: center;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-group input:focus {
+        border-color: #002060;
+        box-shadow: 0 0 0 3px rgba(0, 32, 96, 0.2);
+        outline: none;
+    }
+
+    .submit-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background-color: #002060;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .submit-button:hover {
+        background-color: #003080;
+        transform: translateY(-2px);
+    }
+    
+    /* Estilos para la respuesta de estado */
+    .status-card {
+        padding: 20px;
+        margin-top: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .status-card h3 {
+        margin-top: 0;
+        color: #002060;
+        text-align: center;
+        border-bottom: 1px solid #D1D5DB;
+        padding-bottom: 10px;
+    }
+    
+    .status-card p {
+        margin: 10px 0;
+        font-size: 1.1em;
+        line-height: 1.5;
+    }
+
+    /* Clases de estado dinámicas */
+    .status-pendiente { background-color: #FFF3CD; border-left: 5px solid #FFC300; }
+    .status-aprobado { background-color: #D4EDDA; border-left: 5px solid #28A745; }
+    .status-rechazado { background-color: #F8D7DA; border-left: 5px solid #DC3545; }
+    .status-no-encontrado { background-color: #E9ECEF; border-left: 5px solid #6C757D; }
+
+
+    /* === PIE DE PÁGINA === */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: #6B7280;
+      font-size: 0.9em;
+      background-color: #F3F4F6;
+      border-top: 3px solid #002060;
+    }
+
+    footer a {
+      color: #002060;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover { color: #4B4B4B; }
+
+    @media (max-width: 600px) {
+      .logo img { width: 100px; }
+      nav a { font-size: 0.9em; padding: 6px 12px; }
+      main { padding: 20px; margin: 20px auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="Muni2.ico.png" alt="Logo Principal de MuniAssistant" />
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="crear_solicitud.html">Crear Solicitud</a>
+      <a href="#">Servicios</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="content-title">Consultar Estado de Solicitud</h1>
+    <p style="text-align: center; margin-bottom: 30px;">
+        Ingrese su número de solicitud para conocer el progreso de su trámite.
+    </p>
+
+    <form id="statusForm" onsubmit="consultarEstado(event)">
+      
+      <div class="form-group">
+        <label for="numeroSolicitud">Número de Solicitud:</label>
+        <input type="text" id="numeroSolicitud" name="numeroSolicitud" required placeholder="Ej: 835219" pattern="\d{6,}" title="Debe contener al menos 6 dígitos numéricos" />
+      </div>
+
+      <button type="submit" class="submit-button">Consultar Estado</button>
+      
+      <div id="status-result">
+          <!-- Aquí se mostrará el resultado de la consulta -->
+      </div>
+      
+    </form>
+    
+  </main>
+
+  <footer>
+    © 2025 MuniAssistant | Portal de Servicios Municipales |
+    <a href="https://muni-assistant.vercel.app/" target="_blank" rel="noopener noreferrer">www.muniassistant.com</a>
+  </footer>
+
+  <script>
+    function consultarEstado(event) {
+      event.preventDefault(); 
+      const numero = document.getElementById('numeroSolicitud').value;
+      const resultadoDiv = document.getElementById('status-result');
+      
+      // Simulación de estados basada en el último dígito del número
+      const ultimoDigito = parseInt(numero.slice(-1));
+      let estado = '';
+      let mensaje = '';
+      let clase = '';
+      
+      if (numero.length < 6) {
+          // Si el número no tiene suficiente longitud (aunque el pattern lo valida)
+          estado = 'Error';
+          mensaje = 'Por favor, ingrese un número de solicitud válido (mínimo 6 dígitos).';
+          clase = 'status-no-encontrado';
+      } else if (ultimoDigito % 3 === 0) {
+          estado = 'APROBADO';
+          mensaje = '¡Felicidades! Su solicitud ha sido aprobada. Puede pasar a retirar su Patente en 3 días hábiles en la Municipalidad.';
+          clase = 'status-aprobado';
+      } else if (ultimoDigito % 3 === 1) {
+          estado = 'PENDIENTE DE REVISIÓN';
+          mensaje = 'Su solicitud está en proceso de revisión por el Departamento de Patentes. El tiempo estimado de respuesta es de 5 días hábiles.';
+          clase = 'status-pendiente';
+      } else if (ultimoDigito % 3 === 2) {
+          estado = 'RECHAZADO - DOCUMENTACIÓN INCOMPLETA';
+          mensaje = 'Su solicitud ha sido rechazada. Falta presentar el Permiso de Uso de Suelo. Por favor, adjunte el documento y reenvíe el trámite.';
+          clase = 'status-rechazado';
+      } else {
+          estado = 'NO ENCONTRADO';
+          mensaje = 'El número de solicitud no se encuentra en el sistema. Verifique que el número sea correcto.';
+          clase = 'status-no-encontrado';
+      }
+      
+      resultadoDiv.innerHTML = `
+          <div class="status-card ${clase}">
+              <h3>Estado de Solicitud #${numero}</h3>
+              <p><strong>Estado Actual:</strong> <span style="font-weight: 700;">${estado}</span></p>
+              <p><strong>Detalle:</strong> ${mensaje}</p>
+          </div>
+      `;
+    }
+  </script>
+</body>
+</html>
