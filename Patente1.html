@@ -3,10 +3,72 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Patente 1 | Licencia Comercial General - MuniAssistant</title>
+    <title>Licencia Comercial General - MuniAssistant</title>
     <link rel="icon" type="image/png" href="Muni2.ico.png" />
     
     <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* === Estilos visuales para sección de costos (compactos) === */
+
+        .costos-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f5f7fa;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .costos-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        .costos-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .costo-card {
+            background: #ffffff;
+            width: 190px;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .costo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .titulo-tarjeta {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .persona-fisica {
+            border-top: 4px solid #3498db;
+        }
+
+        .persona-juridica {
+            border-top: 4px solid #9b59b6;
+        }
+
+        .monto {
+            font-size: 1.35em;
+            font-weight: bold;
+            margin-top: 5px;
+            color: #2c3e50;
+        }
+    </style>
 </head>
 <body>
 
@@ -17,13 +79,13 @@
         </div>
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="/servicios.html">Servicios</a>
-            <a href="/contacto.html">Contacto</a>
+            <a href="preguntas.html">Preguntas Frecuentes</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
     </header>
 
     <main>
-        <h1 class="content-title">Patente 1: Licencia Comercial General</h1>
+        <h1 class="content-title">Licencia Comercial General</h1>
 
         <section class="content-section">
             <h2>Descripción General</h2>
@@ -46,15 +108,35 @@
                 <li>Aprobación final y emisión del recibo de pago.</li>
                 <li>Retiro de la Patente Municipal.</li>
             </ol>
+
+            <!-- === SECCIÓN DE COSTOS SIN ICONOS, SOLO TEXTO === -->
+            <section class="costos-section">
+                <h2>Costos de la Licencia</h2>
+
+                <div class="costos-container">
+                    <div class="costo-card persona-fisica">
+                        <p class="titulo-tarjeta">Persona Física</p>
+                        <p class="monto">₡110 000</p>
+                    </div>
+
+                    <div class="costo-card persona-juridica">
+                        <p class="titulo-tarjeta">Persona Jurídica</p>
+                        <p class="monto">₡130 000</p>
+                    </div>
+                </div>
+            </section>
+
         </section>
         
-        <a href="crear_solicitud.html" class="action-button">Iniciar Solicitud de Patente 1</a>
+        <a href="crear_solicitud.html" class="action-button">Iniciar Solicitud de Licencia Comercial General</a>
         
     </main>
 
     <footer>
         © 2025 MuniAssistant | Portal de Servicios Municipales |
-        <a href="https://muni-assistant.vercel.app/" target="_blank" rel="noopener noreferrer">www.muniassistant.com</a>
+        <a href="https://muni-assistant.vercel.app/" target="_blank" rel="noopener noreferrer">
+            www.muniassistant.com
+        </a>
     </footer>
 
 </body>
