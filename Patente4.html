@@ -3,56 +3,141 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Patente 4 | Licencia de Espectáculos Públicos - MuniAssistant</title>
+    <title>Licencia de Espectáculos Públicos - MuniAssistant</title>
     <link rel="icon" type="image/png" href="Muni2.ico.png" />
-    
+
     <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* === Estilos visuales para sección de costos (compactos) === */
+
+        .costos-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f5f7fa;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .costos-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        .costos-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .costo-card {
+            background: #ffffff;
+            width: 190px;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .costo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .titulo-tarjeta {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .persona-fisica {
+            border-top: 4px solid #3498db;
+        }
+
+        .persona-juridica {
+            border-top: 4px solid #9b59b6;
+        }
+
+        .monto {
+            font-size: 1.35em;
+            font-weight: bold;
+            margin-top: 5px;
+            color: #2c3e50;
+        }
+    </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="Muni2.ico.png" alt="Logo Principal de MuniAssistant" />
-            <p class="hero-text-sub">Tu Asistente Municipal de Trámites</p>
-        </div>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="/servicios.html">Servicios</a>
-            <a href="/contacto.html">Contacto</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">
+        <img src="Muni2.ico.png" alt="Logo Principal de MuniAssistant" />
+        <p class="hero-text-sub">Tu Asistente Municipal de Trámites</p>
+    </div>
 
-    <main>
-        <h1 class="content-title">Patente 4: Licencia de Espectáculos Públicos</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="preguntas.html">Preguntas Frecuentes</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
 
-        <section class="content-section">
-            <h2>Descripción General</h2>
-            <p>Necesaria para organizar y llevar a cabo eventos, conciertos, ferias, o cualquier actividad que involucre la congregación de público en un lugar determinado, sea temporal o permanente (como un cine o teatro).</p>
-            
-            <h2>Requisitos Clave</h2>
-            <ul>
-                <li>Plan de gestión de seguridad aprobado por la policía o bomberos.</li>
-                <li>Permiso de la Cruz Roja o entidad de salud para eventos masivos.</li>
-                <li>Contrato de póliza de responsabilidad civil por el evento.</li>
-                <li>Detalle de horarios, aforo máximo y venta de entradas.</li>
-                <li>Copia del contrato de arrendamiento del espacio (si aplica).</li>
-            </ul>
+<main>
+    <h1 class="content-title">Licencia de Espectáculos Públicos</h1>
 
-            <h2>Tipos de Espectáculos</h2>
-            <ul>
-                <li>Eventos Masivos (Conciertos, Fiestas Patronales)</li>
-                <li>Espectáculos Deportivos (Carreras, Torneos)</li>
-                <li>Locales de Entretenimiento (Teatros, Cines, Bares con Música en Vivo)</li>
-            </ul>
+    <section class="content-section">
+        <h2>Descripción General</h2>
+        <p>Necesaria para organizar y llevar a cabo eventos, conciertos, ferias o cualquier actividad que involucre público.</p>
+
+        <h2>Requisitos Clave</h2>
+        <ul>
+            <li>Plan de gestión de seguridad aprobado.</li>
+            <li>Permiso de salud para eventos masivos.</li>
+            <li>Póliza de responsabilidad civil.</li>
+            <li>Detalle de horarios, aforo y entradas.</li>
+            <li>Contrato de arrendamiento del lugar (si aplica).</li>
+        </ul>
+
+        <h2>Tipos de Espectáculos</h2>
+        <ul>
+            <li>Eventos Masivos</li>
+            <li>Espectáculos Deportivos</li>
+            <li>Locales de Entretenimiento</li>
+        </ul>
+
+        <!-- === SECCIÓN DE COSTOS (MISMO ESTILO DE TARJETAS) === -->
+        <section class="costos-section">
+            <h2>Costos de la Licencia</h2>
+
+            <div class="costos-container">
+                <div class="costo-card persona-fisica">
+                    <p class="titulo-tarjeta">Persona Física</p>
+                    <p class="monto">₡120 000</p>
+                </div>
+
+                <div class="costo-card persona-juridica">
+                    <p class="titulo-tarjeta">Persona Jurídica</p>
+                    <p class="monto">₡145 000</p>
+                </div>
+            </div>
         </section>
-        
-        <a href="crear_solicitud.html" class="action-button">Iniciar Solicitud de Patente 4</a>
-        
-    </main>
 
-    <footer>
-        © 2025 MuniAssistant | Portal de Servicios Municipales |
-        <a href="https://muni-assistant.vercel.app/" target="_blank" rel="noopener noreferrer">www.muniassistant.com</a>
-    </footer>
+    </section>
+
+    <a href="crear_solicitud.html" class="action-button">Iniciar Solicitud</a>
+
+    <a href="preguntas.html" class="faq-button">Ver Preguntas Frecuentes</a>
+
+</main>
+
+<footer>
+    © 2025 MuniAssistant | Portal de Servicios Municipales |
+    <a href="https://muni-assistant.vercel.app/" target="_blank">www.muniassistant.com</a>
+</footer>
+
 </body>
 </html>
