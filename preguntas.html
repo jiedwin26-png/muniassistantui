@@ -5,93 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Preguntas Frecuentes - MuniAssistant</title>
     <link rel="icon" type="image/png" href="Muni2.ico.png" />
-
-<style>
-/* ==================================== */
-/* === 1. ESTILOS GENERALES Y LAYOUT === */
-/* ==================================== */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0056b3;
-    padding: 10px 20px;
-    color: white;
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-header .logo img {
-    width: 50px;
-}
-
-.hero-text-sub {
-    font-size: 14px;
-    color: #d9eaff;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: 500;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 20px;
-}
-
-.content-title {
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.faq-container {
-    max-width: 900px;
-    margin: auto;
-}
-
-.faq-item {
-    background: white;
-    padding: 18px 20px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.faq-item h3 {
-    margin: 0 0 10px 0;
-}
-
-footer {
-    background-color: #003d80;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-}
-
-footer a {
-    color: #aad4ff;
-    text-decoration: none;
-}
-</style>
-
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -100,57 +14,62 @@ footer a {
         <img src="Muni2.ico.png" alt="Logo Principal de MuniAssistant" />
         <p class="hero-text-sub">Tu Asistente Municipal de Trámites</p>
     </div>
-
-    <!-- 📌 MENÚ ACTUALIZADO: Se elimina “Servicios” y se agrega Preguntas Frecuentes -->
     <nav>
         <a href="index.html">Inicio</a>
-        <a href="preguntas_frecuentes.html">Preguntas Frecuentes</a>
+        <a href="preguntas.html">Preguntas Frecuentes</a>
         <a href="contacto.html">Contacto</a>
     </nav>
 </header>
 
 <main>
+
     <h1 class="content-title">Preguntas Frecuentes</h1>
 
-    <div class="faq-container">
+    <section class="content-section">
 
         <div class="faq-item">
             <h3>¿Cuál es el primer requisito o trámite por realizar?</h3>
-            <p>El primer paso se llama Certificado de Uso de Suelo. Con el se logra determinar si la actividad que se desea realizar es permitida de acuerdo a la Zona en la que se encuentra.</p>
+            <p>El primer paso se llama Certificado de Uso de Suelo, el cual determina si la actividad que se desea realizar es permitida según la zona donde se encuentra.</p>
         </div>
 
         <div class="faq-item">
             <h3>¿El costo de la patente es muy alto?</h3>
-            <p>El cargo trimestral cuando se ubica básicamente es igual para todos, el monto cambiaría al presentarse la primer declaración de impuestos de acuerdo a lo reportado en el Ministerio de Hacienda en sus declaraciones.</p>
+            <p>El cobro trimestral inicial es el mismo para todos. El monto cambia al presentar la primera declaración de impuestos según lo reportado al Ministerio de Hacienda.</p>
         </div>
 
         <div class="faq-item">
-            <h3>¿Cuánto tiempo puede durar una persona desde cero a obtener la Licencia comercial o Licores?</h3>
-            <p>Con la asesoría correcta y presentando todos los requisitos completos, la Municipalidad cuenta con un mes hábil como tiempo de respuesta, sin embargo normalmente tarda unos 22 días aproximadamente.</p>
+            <h3>¿Cuánto tiempo tarda una persona desde cero en obtener la licencia comercial o de licores?</h3>
+            <p>Con asesoría correcta y requisitos completos, la municipalidad tiene un mes hábil para responder. Normalmente el trámite tarda unos 22 días.</p>
         </div>
 
         <div class="faq-item">
             <h3>¿Son muchos los trámites que se deben presentar?</h3>
-            <p>En físico, básicamente son solo 5 requisitos. Los demás requisitos son consultas en línea o gratuitas para conocer el estado del futuro patentado en diferentes instituciones.</p>
+            <p>Solo hay 5 requisitos principales en físico. Los demás son consultas digitales o gratuitas para validar información del solicitante.</p>
         </div>
 
         <div class="faq-item">
             <h3>¿Qué documentos personales y legales son esenciales?</h3>
-            <p>La Cédula en caso de persona física y la Personería jurídica en caso de ser sociedad.</p>
+            <p>La cédula para personas físicas o la personería jurídica si se trata de una sociedad.</p>
         </div>
 
         <div class="faq-item">
             <h3>¿La licencia comercial tiene vencimiento?</h3>
-            <p>Generalmente no tienen vencimiento (son de carácter indefinido) siempre y cuando se mantengan al día todos los pagos e impuestos municipales. De lo contrario, se puede proceder a la clausura del negocio.</p>
+            <p>Generalmente no vencen mientras se mantengan al día los pagos e impuestos municipales. De lo contrario puede existir riesgo de clausura.</p>
         </div>
 
         <div class="faq-item">
             <h3>¿Qué pasa si el local no es mío?</h3>
-            <p>Si involucra la venta de licor es necesaria la firma del propietario en el formulario o contar con un contrato de arrendamiento autenticado por un abogado.  
-            En caso de licencia comercial, no se necesita ninguna aprobación específica.</p>
+            <p>Si involucra venta de licor, se requiere la firma del propietario o un contrato autenticado. Para licencia comercial no se requiere ninguna autorización especial del dueño.</p>
         </div>
 
-    </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Acceso Rápido</h2>
+        <p>Volver al inicio:</p>
+        <a href="index.html" class="action-button">Ir a Página Principal</a>
+    </section>
+
 </main>
 
 <footer>
@@ -160,4 +79,3 @@ footer a {
 
 </body>
 </html>
-
